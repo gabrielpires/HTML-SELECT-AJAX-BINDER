@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>Html Select Binder - Sample</title>
+</head>
+<body>
+	<h1>HTML Select Element Binder - Sample Page</h1>
+	<p>Welcome to documentation about this script.</p>
+	<p>My name is <a href="http://gabrielpires.com.br">Gabriel Pires</a> and I create this script to make easy my days as web-developer.</p>
+	<p>This is a simple javascript that work to bind with ajax a select HTML element.</p>
+	<h2>Spec:</h2>
+	<ul>
+		<li>Version: v1.0</li>
+		<li>Last Update: 2010-09-01</li>
+		<li>The ajax handler is Ajax Requester - MyLib JS - Developed by David Mark - <a href="http://www.cinsoft.net/">http://www.cinsoft.net/</a></li>
+	</ul>
+	<p>The first thing you need know is: I create this script based in a simple convention of data.</p>
+	<p>An object with the follow attributes</p>
+	<ul>
+		<li>Text: The simple text that you wanna show in interface</li>
+		<li>Value: The data hide in the value attribute of the option element</li>
+		<li>Select (Opitional): This represent the element that will be come selected in the element.</li>
+	</ul>
+	<code>E.g: {"text":"my first item", "value":10, "selected"}</code>
+	<p>This object will be a part of our array.</p>
+	<code>E.g: <br/>[<br/>{"text":"my first item", "value":10},{"text":"item 2", "value":20}<br/>]</code>
+	<p>Let me show how do it:</p>
+	<h2>Sample 1 - Using an array to fill</h2>
+	<p>The first I'll create an array with data and capture the element:</p>
+	<code>var myData = [{"text":"Select an item", "value":0},{"text":"item 1", "value":1},{"text":"item 2", "value":2}];<br/>var mySelect = document.getElementById('mySelect');</code>
+	<p>Now we'll create a new binder object and pass our select by parameter</p>
+	<code>var binder = new bindList(mySelect);<br/>The object constructor require an select element by parameter.</code>
+	<p>All is ready to initiate the bind process</p>
+	<code>
+		binder.fill(<br/>
+  		{<br/>
+      		"source": myData, //THE ARRAY OBJECT<br/>
+      		"success": function(){alert('here comes my success function');},//THE SUCCESS FUNCTION<br/>
+      		"fail": function(){alert('here comes my fail function');},//THE FAIL FUNCTION<br/>
+      		"load": "Loading data...",//THE MESSAGE THAT WILL BE SHOWN WHILE THE SCRIPT FILL THE LIST<br/>
+      		"empty": "No Item(s)" // THE MESSAGE THAT WILL BE SHOWN WHEN THE SERVICE OR THE LIST HAS NO ITEM(S)<br/>
+  		});<br/>
+	</code>
+	<p>In the <em>fill</em> method we have and unique parameter composed by source, success, fail and load</p>
+	<ul>
+		<li>source (required) - This parameter can be an array object or an url of a webservice (Sample 2).</li>
+		<li>sucess (Optional) - A simple callback function that run after the fill process.</li>
+		<li>fail (Optional) - A callback function to call in case of error.</li>
+		<li>load (Optional) - This represent the message that will be shown in your element until the fill process has been completed.</li>
+	</ul>
+	<p>Done, now we have a binder function working perfectly. To see all the code running, look the sample1.html in the sample folder.</p>
+	<h2>Sample 2 - Using a webservice to fill</h2>
+		<p>The first I'll create an array with data and capture the element:</p>
+	<code>var myService = "my-service.php";<br/>var mySelect = document.getElementById('mySelect');</code>
+	<p>Now we'll create a new binder object and pass our select by parameter</p>
+	<code>var binder = new bindList(mySelect);<br/>The object constructor require an select element by parameter.</code>
+	<p>All is ready to initiate the bind process</p>
+	<code>
+		binder.fill(<br/>
+  		{<br/>
+      		"source": myService, //THE URL OF SERVICET<br/>
+      		"success": function(){alert('here comes my success function');},//THE SUCCESS FUNCTION<br/>
+      		"fail": function(){alert('here comes my fail function');},//THE FAIL FUNCTION<br/>
+      		"load": "Loading data...",//THE MESSAGE THAT WILL BE SHOWN WHILE THE SCRIPT FILL THE LIST<br/>
+      		"empty": "No Item(s)" // THE MESSAGE THAT WILL BE SHOWN WHEN THE SERVICE OR THE LIST HAS NO ITEM(S)<br/>
+  		});<br/>
+	</code>
+	<p>In the <em>fill</em> method we have and unique parameter composed by source, success, fail and load</p>
+	<ul>
+		<li>source (required) - This parameter can be an array object or an url of a webservice </li>
+		<li>sucess (Optional) - A simple callback function that run after the fill process.</li>
+		<li>fail (Optional) - A callback function to call in case of error.</li>
+		<li>load (Optional) - This represent the message that will be shown in your element until the fill process has been completed.</li>
+	</ul>
+	<p>Done, now we have a binder function working perfectly. To see all the code running, look the sample1.html in the sample folder.</p>
+	<h3>Developer Notes:</h3>
+	<p>1:<em> Everytime that you fill a select element, all items inside will be removed.</em></p>
+	<p>2:<em> In this version 1.0 there's no way to append an item to control. Only full bind.</em></p>
+	<p>3:<em> The ajax handler is Ajax Requester - MyLib JS - Developed by David Mark - <a href="http://www.cinsoft.net/">http://www.cinsoft.net/</a></em></p>
+</body>
+</html>
