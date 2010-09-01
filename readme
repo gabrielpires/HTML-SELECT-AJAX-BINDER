@@ -1,5 +1,5 @@
 HTML Select Element Binder
-My name Gabriel Pires and I create this script to make easy my days as web-developer.
+My name Gabriel Pires (http://gabrielpires.com.br) and I create this script to make easy my days as web-developer.
 This is a javascript that work to bind with ajax a select HTML element.
 You can find a simple documentation in docs folder and 2 samples in samples folder.
 
@@ -7,4 +7,4 @@ You can find a simple documentation in docs folder and 2 samples in samples fold
 //Author: Gabriel Pires - gabrielpires.com.br
 //Version: 1.0
 //Release Date: 2010-09-01
-//The ajax handler is Ajax Requester - MyLib JS - Developed by David Mark - <a href="http://www.cinsoft.net/">http://www.cinsoft.net/
+//The ajax handler is Ajax Requester - MyLib JS - Developed by David Mark - http://www.cinsoft.net/
